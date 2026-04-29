@@ -5,6 +5,6 @@ const status = require('./status');
 const document = require('./docPulseRoutes');
 
 app.use('/', status);
-app.use('/document',document)
+app.use('/api/document',document)
 
 module.exports = app;

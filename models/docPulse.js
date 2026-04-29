@@ -7,6 +7,10 @@ const DocPulseSchema = mongoose.Schema(
             type: String,
             required: true
         },
+        source_name : {
+            type: String,
+            required: true
+        },
         commit_id :{
             type: String,
             required: true
@@ -19,20 +23,12 @@ const DocPulseSchema = mongoose.Schema(
             type: String,
             required: true
         },
-        added_document : {
-            type: Boolean,
-            required: true
-        },
         product_name :{
             type: String,
             required: true
         },
-        release_notes : {
-            type: Boolean,
-            required: true
-        },
-        updated_document : {
-            type: Boolean,
+        tag : {
+            type: String,
             required: true
         }
     }, { timestamps: true }
