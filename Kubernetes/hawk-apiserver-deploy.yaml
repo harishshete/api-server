@@ -38,6 +38,22 @@ spec:
         name: hawk-apiserver
         ports:
         - containerPort: 3000
+        livenessProbe:
+          httpGet:
+            path: /health/live
+            port: 3000
+          initialDelaySeconds: 20
+          periodSeconds: 10
+          timeoutSeconds: 2
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: /health/ready
+            port: 3000
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          timeoutSeconds: 2
+          failureThreshold: 3
         env:  
         - name: CRED_FILE_PATH
           value: "/etc/hawk-apiserver/secret.txt"
