@@ -1,3 +1,6 @@
 node_modules/
 env/
 secret/
+Kubernetes/secret.txt
+Kubernetes/secret.yaml
+Kubernetes/secret.yaml
