@@ -12,8 +12,8 @@ require('./config/dbConnection');
 
 
 // view engine setup
-//app.set('views', path.join(__dirname, 'views'));
-//app.set('view engine', 'jade');
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
 
 if(process.env.MORGAN_ENABLED == "true"){
   app.use(logger('dev'));
