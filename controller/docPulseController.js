@@ -28,6 +28,23 @@ exports.insertDocument = async (req, res, next) =>{
     }
 }
 
+exports.deleteBysIds = async (req, res, next) => {
+    const documen_ids = req.body.documen_ids;
+    console.log(documen_ids);
+    
+    if (documen_ids && Array.isArray(documen_ids) && documen_ids.length > 0) {
+        try {
+            const deleteResult = await Document.deleteMany({ _id: { $in: documen_ids } });
+            res.status(200).json({ message: `${deleteResult.deletedCount} document(s) deleted successfully` });
+        } catch (error) {
+            res.status(500).json(error);
+        }
+    } else {
+        res.status(400).json({ message: "Invalid input. 'documen_ids' should be a non-empty array." });
+    }
+};
+
+
 // Fetch documents by tags and product name
 exports.getByTags = async (req, res, next) => {
     const product = req.params.product;
